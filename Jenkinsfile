@@ -7,7 +7,7 @@ pipeline {
     parameters {
         string(name: 'version', defaultValue: '', description: 'version to deploy the file on prod')
         choice(name: 'environment', choices: ['uat1', 'uat2'], description: 'choices for environment')
-        booleanParam(name: 'executetest, defaultValue: 'true', description: '')
+        booleanParam(name: 'executetest, defaultValue: true, description: '')
     }
     stages {
         stage('build') {
