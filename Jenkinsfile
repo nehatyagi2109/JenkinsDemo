@@ -4,17 +4,21 @@ pipeline {
         maven 'maven3'
         jdk 'JDK8'
     }
+    parameters {
+        string(name: 'version', defaultvalue: '', description: 'version to deploy the file on prod')
+        choice(name: 'environment', choices: ['uat1', 'uat2'], description: 'choices for environment')
+    }
     stages {
         stage('build') {
             steps {
                 echo "building maven project...."
-                sh 'mvn compile'
+              
             }
         }
         stage('test') {
             steps {
                 echo "testing maven build.."
-                sh 'mvn test'
+              
             }
         }
     }
