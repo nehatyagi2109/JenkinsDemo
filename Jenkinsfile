@@ -1,14 +1,20 @@
 pipeline {
-    agent any
+    agent master
+    tools {
+        maven 'maven3'
+        jdk 'JDK8'
+    }
     stages {
         stage('build') {
             steps {
-                echo "building maven project"
+                echo "building maven project...."
+                sh 'mvn compile'
             }
         }
-        stage('package') {
+        stage('test') {
             steps {
-                echo "creating a package of maven build"
+                echo "testing maven build.."
+                sh 'mvn test'
             }
         }
     }
