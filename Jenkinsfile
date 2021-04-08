@@ -19,7 +19,7 @@ pipeline {
             }
             steps {
                 echo "testing maven build.."
-                echo "testing environment ${environment}"
+                echo "testing environment ${params.environment}"
               
             }
         }
