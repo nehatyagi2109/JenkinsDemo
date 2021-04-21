@@ -51,7 +51,7 @@ pipeline {
                  deploy adapters: [tomcat9(credentialsId: 'a535819b-5fba-412b-87b9-9478a054cc20', path: '', url: 'http://3.141.197.110:8080/')], contextPath: null, war: '**/*.war'
              }
          }
-         stage('Slack Notification for QA Deployment'){
+         stage('Slack Notify for QA Deployment'){
              steps {
                  slackSend channel: 'poc', message: 'QA deployment is successful', teamDomain: 'cicd-4ei9372', tokenCredentialId: '3fe2f4fc-fad2-4865-8292-3d935ea0b58f'
              }
